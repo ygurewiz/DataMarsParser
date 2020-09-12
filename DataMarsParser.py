@@ -17,7 +17,12 @@ keyWords = ['LOG_FIRMWARE_VERSION',
             'LOG_FSM300_DRIVER_RESTART',
             'LOG_FSM300_DRIVER_DATA_CHECKSUM_ERROR',
             'LOG_FSM300_DRIVER_DATA_ANGLE_ERROR',
-            'LOG_PROTOCOL_VERSION_MISMATCH']
+            'LOG_PROTOCOL_VERSION_MISMATCH',
+            'LOG_TELIT_DRIVER',
+            'LOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS',
+            'LOG_ROBOT_MANAGER_CHANGE_PARKING_SIDE',
+            'LOG_ROBOT_MANAGER_PARSE_EVENT',
+            'LOG_ROBOT_MANAGER_CHANGE_PARKING']
 
 #opends log file and json result file - returns result file + lines from log
 def openFiles(rFileName):
@@ -182,7 +187,7 @@ def getLOG_ADC_TEMPERATURE_MEASURED_VALUE(theLine):
 
 def getLOG_ROBOT_MANAGER_HANDLE_EVENT(theLine):
     index = str.find(theLine[3],'LOG_ROBOT_MANAGER_HANDLE_EVENT_CHANGE_STATE')
-    res = []
+    res = ['']
     if(index==-1):
         Event = str.split(theLine[5],',')[0].strip()
         CurrentState = str.split(theLine[8],',')[0].strip()
@@ -198,7 +203,6 @@ def getLOG_FSM300_DRIVER_RESTART(theLine):
     restartNumber = int(str.split(theLine[6],',')[0].strip())
     Offset = int(theLine[8].strip())
     return [restartNumber,Offset]
-
 
 def getLOG_PROTOCOL_VERSION_MISMATCH(theLine):
     Major = int(str.split(theLine[7],',')[0].strip())
@@ -219,7 +223,48 @@ def getLOG_FSM300_DRIVER_DATA_CHECKSUM_ERROR(theLine):
     calculatedChecksum = int(str.split(theLine[11],',')[0].strip())
     return [Index,packetChecksum,calculatedChecksum]
 
+def getLOG_TELIT_DRIVER(theLine):
+    index = str.find(theLine[3],'LOG_TELIT_DRIVER_CHANNEL')
+    res = ['']
+    telitStatus = str.split(theLine[6],',')[0].strip()
+    if(index==-1):
+        res = [telitStatus]
+        return ['LOG_TELIT_DRIVER',res]
+    else:
+        telitChannel = int(theLine[9].strip())
+        res = [telitStatus,telitChannel]
+        return ['LOG_TELIT_DRIVER_CHANNEL',res]
 
+def getLOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS(theLine):
+    pitch = int(str.split(theLine[6],',')[0])
+    maxTiltAllowed = int(str.split(theLine[11],',')[0])
+    minTiltAllowed = int(str.split(theLine[16],',')[0])
+    return [pitch,maxTiltAllowed,minTiltAllowed]
+
+def getLOG_ROBOT_MANAGER_PARSE_EVENT(theLine):
+    event = theLine[5].strip()
+    return [event]
+
+def getLOG_ROBOT_MANAGER_CHANGE_PARKING(theLine):
+    res = ['']
+    if(theLine[3]=='LOG_ROBOT_MANAGER_CHANGE_PARKING'):
+        direction = int(theLine[5].strip())
+        res = [direction]
+        return ['LOG_ROBOT_MANAGER_CHANGE_PARKING',res]
+    elif(theLine[3]=='LOG_ROBOT_MANAGER_CHANGE_PARKING_TIME'):
+        Hour = int(str.split(theLine[5],',')[0])
+        Minute = int(str.split(theLine[7],',')[0])
+        minCPTime = int(str.split(theLine[12],',')[0])
+        maxCPTime = int(str.split(theLine[17],',')[0])
+        changeParkingTime = int(str.split(theLine[22],',')[0])
+        res = [Hour,Minute,minCPTime,maxCPTime,changeParkingTime]
+        return ['LOG_ROBOT_MANAGER_CHANGE_PARKING_TIME',res]
+    elif(theLine[3]=='LOG_ROBOT_MANAGER_CHANGE_PARKING_SIDE'):
+        pitch = int(str.split(theLine[6],',')[0])
+        maxTiltAllowed = int(str.split(theLine[11],',')[0])
+        minTiltAllowed = int(str.split(theLine[16],',')[0])
+        res = [pitch,maxTiltAllowed,minTiltAllowed]
+        return ['LOG_ROBOT_MANAGER_CHANGE_PARKING_SIDE',res]
 ###########################################################
 #goes over log lines and sets data in json file
 
@@ -294,6 +339,30 @@ def logLinesAnalizer(lines,outputFile,logFileName):
                 elif(key=='LOG_PROTOCOL_VERSION_MISMATCH'):
                     res = getLOG_PROTOCOL_VERSION_MISMATCH(theLine)
                     json.dump({"RecordType":"LOG_PROTOCOL_VERSION_MISMATCH","time":timeStamp,"Major:":res[0],"Minor:":res[1],"FWMajor:":res[2],"FWMinor:":res[3] }, outputFile,separators=(',', ':'), indent=2)
+                elif(key=='LOG_TELIT_DRIVER'):
+                    res = getLOG_TELIT_DRIVER(theLine)
+                    if(res[0]=='LOG_TELIT_DRIVER'):
+                        json.dump({"RecordType":"LOG_TELIT_DRIVER","time":timeStamp,"telitStatus:":res[1][0] }, outputFile,separators=(',', ':'), indent=2)
+                    elif(res[0]=='LOG_TELIT_DRIVER_CHANNEL'):
+                        json.dump({"RecordType":"LOG_TELIT_DRIVER_CHANNEL","time":timeStamp,"telitStatus:":res[1][0],"telitChannel:":res[1][1] }, outputFile,separators=(',', ':'), indent=2)
+                    else:
+                        found = False
+                elif(key=='LOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS'):
+                    res = getLOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS(theLine)
+                    json.dump({"RecordType":"LOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS","time":timeStamp,"pitch:":res[0],"maxTiltAllowed:":res[1],"minTiltAllowed:":res[2] }, outputFile,separators=(',', ':'), indent=2)
+                elif(key=='LOG_ROBOT_MANAGER_PARSE_EVENT'):
+                    res = getLOG_ROBOT_MANAGER_PARSE_EVENT(theLine)
+                    json.dump({"RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT","time":timeStamp,"event:":res[0] }, outputFile,separators=(',', ':'), indent=2)
+                elif(key=='LOG_ROBOT_MANAGER_CHANGE_PARKING'):
+                    res = getLOG_ROBOT_MANAGER_CHANGE_PARKING(theLine)
+                    if(res[0]=='LOG_ROBOT_MANAGER_CHANGE_PARKING'):
+                        json.dump({"RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING","time":timeStamp,"direction:":res[1][0] }, outputFile,separators=(',', ':'), indent=2)
+                    elif(res[0]=='LOG_ROBOT_MANAGER_CHANGE_PARKING_TIME'):
+                        json.dump({"RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING_TIME","time":timeStamp,"Hour:":res[1][0],"Minute:":res[1][1],"minCPTime:":res[1][2],"maxCPTime:":res[1][3],"changeParkingTime:":res[1][4] }, outputFile,separators=(',', ':'), indent=2)
+                    elif(res[0]=='LOG_ROBOT_MANAGER_CHANGE_PARKING_SIDE'):
+                        json.dump({"RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING_SIDE","time":timeStamp,"pitch:":res[1][0],"maxTiltAllowed:":res[1][1],"minTiltAllowed:":res[1][2] }, outputFile,separators=(',', ':'), indent=2)
+                    else:
+                        found = False
         if(not found):
             print(line)
 #primitive clean json concat wrong...

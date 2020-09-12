@@ -354,6 +354,43 @@
     116
   ]
 },
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    1970,
+    1,
+    1,
+    0,
+    0,
+    5,
+    420
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    1970,
+    1,
+    1,
+    0,
+    0,
+    6,
+    795
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
+},
+{  "RecordType":"LOG_TELIT_DRIVER_CHANNEL",
+  "time":[
+    1970,
+    1,
+    1,
+    0,
+    0,
+    6,
+    795
+  ],
+  "telitStatus:":"TELIT_STATUS_SET_CURRENT_CHANNEL",
+  "telitChannel:":0
+},
 {  "RecordType":"LOG_LOW_BATTERY",
   "time":[
     1970,
@@ -458,6 +495,18 @@
   ],
   "directionBefore:":19,
   "directionAfter:":27000
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    1970,
+    1,
+    1,
+    0,
+    0,
+    24,
+    920
+  ],
+  "event:":"ROBOT_MANAGER_INIT_DONE_EVENT"
 },
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
@@ -961,6 +1010,20 @@
   "response:":"OK",
   "size:":0
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    33,
+    52,
+    887
+  ],
+  "pitch:":-1882,
+  "maxTiltAllowed:":300,
+  "minTiltAllowed:":-300
+},
 {  "RecordType":"LOG_COMMUNICATION_RECEIVED",
   "time":[
     2020,
@@ -1167,6 +1230,32 @@
   "packetChecksum:":0,
   "calculatedChecksum:":75
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING_SIDE",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    48,
+    56,
+    888
+  ],
+  "pitch:":-42,
+  "maxTiltAllowed:":300,
+  "minTiltAllowed:":-300
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    48,
+    56,
+    888
+  ],
+  "event:":"ROBOT_MANAGER_CHANGE_PARKING_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -1192,6 +1281,18 @@
   ],
   "Oldstate:":"PARKING_STATE",
   "Newstate:":"CHANGE_PARKING_STATE"
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    48,
+    56,
+    980
+  ],
+  "direction:":8979
 },
 {  "RecordType":"LOG_COMMUNICATION_RECEIVED",
   "time":[
@@ -1333,6 +1434,46 @@
   ],
   "directionBefore:":27928,
   "directionAfter:":27000
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING_TIME",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    49,
+    28,
+    99
+  ],
+  "Hour:":11,
+  "Minute:":49,
+  "minCPTime:":1100,
+  "maxCPTime:":1149,
+  "changeParkingTime:":1400
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    49,
+    28,
+    99
+  ],
+  "direction:":26900
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    49,
+    28,
+    99
+  ],
+  "event:":"ROBOT_MANAGER_CHANGE_PARKING_DONE_EVENT"
 },
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
@@ -1758,6 +1899,18 @@
   "packetID:":48878,
   "serverID:":974,
   "payloadSize:":6
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    11,
+    59,
+    35,
+    492
+  ],
+  "event:":"ROBOT_MANAGER_CLEANING_EVENT"
 },
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
@@ -4201,6 +4354,18 @@
   ],
   "internalTemperature:":"45"
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    12,
+    54,
+    35,
+    693
+  ],
+  "event:":"ROBOT_MANAGER_RETURN_HOME_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -4433,6 +4598,18 @@
   "directionBefore:":9083,
   "directionAfter:":9000
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    12,
+    59,
+    20,
+    414
+  ],
+  "event:":"ROBOT_MANAGER_RESET_STATE_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -4533,6 +4710,18 @@
   "packetChecksum:":0,
   "calculatedChecksum:":88
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    5,
+    33,
+    692
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -4545,6 +4734,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    5,
+    33,
+    693
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    5,
+    46,
+    592
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_ROBOT_STATUS_1",
   "time":[
@@ -5400,6 +5613,18 @@
   ],
   "internalTemperature:":"39"
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    20,
+    33,
+    688
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -5412,6 +5637,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    20,
+    33,
+    688
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    20,
+    46,
+    593
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_PROTOCOL_VERSION_MISMATCH",
   "time":[
@@ -5515,6 +5764,18 @@
   "serverID:":11,
   "payloadSize:":0
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    21,
+    39,
+    461
+  ],
+  "event:":"ROBOT_MANAGER_CHANGE_PARKING_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -5553,6 +5814,18 @@
   ],
   "response:":"OK",
   "size:":0
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    21,
+    39,
+    553
+  ],
+  "direction:":9000
 },
 {  "RecordType":"LOG_FSM300_DRIVER_RESTART",
   "time":[
@@ -5631,6 +5904,46 @@
   ],
   "directionBefore:":28225,
   "directionAfter:":27000
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING_TIME",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    22,
+    11,
+    372
+  ],
+  "Hour:":13,
+  "Minute:":22,
+  "minCPTime:":1100,
+  "maxCPTime:":1322,
+  "changeParkingTime:":1400
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_CHANGE_PARKING",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    22,
+    11,
+    372
+  ],
+  "direction:":26890
+},
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    22,
+    11,
+    372
+  ],
+  "event:":"ROBOT_MANAGER_CHANGE_PARKING_DONE_EVENT"
 },
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
@@ -5854,6 +6167,18 @@
   "packetChecksum:":0,
   "calculatedChecksum:":78
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    36,
+    39,
+    595
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -5866,6 +6191,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    36,
+    39,
+    596
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    36,
+    52,
+    495
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_ROBOT_STATUS_1",
   "time":[
@@ -6749,6 +7098,18 @@
   ],
   "internalTemperature:":"40"
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    51,
+    39,
+    591
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -6761,6 +7122,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    51,
+    39,
+    591
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    13,
+    51,
+    52,
+    476
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_ROBOT_STATUS_1",
   "time":[
@@ -7658,6 +8043,18 @@
   ],
   "internalTemperature:":"39"
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    6,
+    39,
+    591
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -7670,6 +8067,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    6,
+    39,
+    591
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    6,
+    52,
+    470
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_ROBOT_STATUS_1",
   "time":[
@@ -8553,6 +8974,18 @@
   "packetChecksum:":0,
   "calculatedChecksum:":78
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    21,
+    39,
+    595
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -8565,6 +8998,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    21,
+    39,
+    596
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    21,
+    52,
+    515
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_ROBOT_STATUS_1",
   "time":[
@@ -9114,6 +9571,20 @@
   ],
   "internalTemperature:":"39"
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_CHECK_CHANGE_PARKING_NOT_BETWEEN_THRESHOLDS",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    30,
+    8,
+    516
+  ],
+  "pitch:":-3169,
+  "maxTiltAllowed:":500,
+  "minTiltAllowed:":-500
+},
 {  "RecordType":"LOG_ROBOT_STATUS_1",
   "time":[
     2020,
@@ -9474,6 +9945,18 @@
   ],
   "internalTemperature:":"39"
 },
+{  "RecordType":"LOG_ROBOT_MANAGER_PARSE_EVENT",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    36,
+    39,
+    591
+  ],
+  "event:":"ROBOT_MANAGER_NO_COMMUNICATION_EVENT"
+},
 {  "RecordType":"LOG_ROBOT_MANAGER_HANDLE_EVENT",
   "time":[
     2020,
@@ -9486,6 +9969,30 @@
   ],
   "Event:":"ROBOT_MANAGER_INNER_NO_COMMUNICATION_EVENT",
   "CurrentState:":"PARKING_STATE"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    36,
+    39,
+    591
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_START"
+},
+{  "RecordType":"LOG_TELIT_DRIVER",
+  "time":[
+    2020,
+    9,
+    7,
+    14,
+    36,
+    52,
+    486
+  ],
+  "telitStatus:":"TELIT_STATUS_INIT_CONFIG_REGISTERS_END"
 },
 {  "RecordType":"LOG_COMMUNICATION_RECEIVED",
   "time":[
